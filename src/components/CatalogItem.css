@@ -1,8 +1,21 @@
+h3 {
+    color: black;
+    background-color: brown;
+    margin: 0 auto;
+}
+
+#price {
+    /* font-weight: 700; */
+}
+
 .catalogItem {
     background-color: aliceblue;
     max-width: 200px;
-    min-height: 300px;
-    /* padding: 40px; */
+    /* min-height: 200px; */
+    /* max-height: 390px; */
+
+    /* padding: 5px; */
+
     margin: 5px;
     border-radius: 5px;
     /* border: 1px solid green; */
@@ -13,9 +26,26 @@
     justify-content: center;
 }
 
+.catalogItemCover {
+    max-width: 200px;
+    /* max-height: 2%; */
+}
+
 .catalogItemCoverBox {
     background-color: aquamarine;
-    width: 50px;
-    height: 50px;
-    /* margin: ; */
+    width: 200px;
+    height: 200px;
+    margin: 5px 5px 0px;
+}
+
+.catalogItemTextBox {
+    background-color: bisque;
+    width: 100%;
+    margin: 5px;
+    /* text-align: start; */
+    /* display: flex; */
+    /* flex-wrap:nowrap; */
+    /* text-wrap: nowrap; */
+    /* align-items:end; */
+    /* justify-content: center; */
 }
