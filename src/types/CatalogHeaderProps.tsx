@@ -1,0 +1,3 @@
+type CatalogHeaderProps = {
+    title: string
+}

@@ -1,6 +1,7 @@
 h3 {
-    color: black;
-    background-color: brown;
+    /* color: black; */
+    color: #EDF2F4;
+    /* background-color: brown; */
     margin: 0 auto;
 }
 
@@ -9,8 +10,10 @@ h3 {
 }
 
 .catalogItem {
-    background-color: aliceblue;
-    max-width: 200px;
+    /* background-color: rgb(107, 107, 107); */
+    background-color: #8D99AE;
+    /* max-width: 200px; */
+    max-width: 45%;
     /* min-height: 200px; */
     /* max-height: 390px; */
 
@@ -27,19 +30,20 @@ h3 {
 }
 
 .catalogItemCover {
-    max-width: 200px;
-    /* max-height: 2%; */
+    max-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
 }
 
 .catalogItemCoverBox {
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
     width: 200px;
     height: 200px;
     margin: 5px 5px 0px;
 }
 
 .catalogItemTextBox {
-    background-color: bisque;
+    /* background-color: bisque; */
     width: 100%;
     margin: 5px;
     /* text-align: start; */
