@@ -4,6 +4,9 @@ h3 {
     /* background-color: brown; */
     margin: 0 auto;
 }
+h5 {
+    margin: 0 auto;
+}
 
 #price {
     /* font-weight: 700; */
@@ -33,6 +36,7 @@ h3 {
     max-width: 100%;
     min-height: 100%;
     object-fit: cover;
+    border-radius: 5px;
 }
 
 .catalogItemCoverBox {
