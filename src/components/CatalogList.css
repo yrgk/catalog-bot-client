@@ -1,5 +1,4 @@
 .catalogList {
-    /* display: flex; */
     flex-wrap: wrap;
     /* background-color: aqua; */
     display: flex;
@@ -7,9 +6,15 @@
     justify-content: center;
     /* margin-left: 50%;
     margin-right: 50%; */
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 h4 {
     margin: 1% 1% 1% 3%;
     font-weight: 500;
+}
+
+.bottomPagination {
+
 }

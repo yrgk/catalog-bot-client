@@ -24,7 +24,7 @@ h5 {
     /* padding: 5px; */
 
     margin: 5px;
-    border-radius: 5px;
+    border-radius: 10px;
     /* border: 1px solid green; */
     display: flex;
     flex-wrap: wrap;
@@ -48,7 +48,6 @@ h5 {
 }
 
 .catalogItemTextBox {
-    /* background-color: bisque; */
     width: 100%;
     margin: 5px;
     /* text-align: start; */
@@ -57,4 +56,18 @@ h5 {
     /* text-wrap: nowrap; */
     /* align-items:end; */
     /* justify-content: center; */
+}
+
+.addButton {
+    background-color: var(--tg-theme-button-color);
+    /* background-color: aqua; */
+    display: flex;
+    align-content: center;
+    margin-top: 5px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.addButtonText {
+    color: var(--tg-theme-button-text-color);
 }

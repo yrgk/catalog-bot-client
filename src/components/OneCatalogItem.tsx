@@ -7,11 +7,10 @@ export default function OneCatalogItem(props: OneCatalogItemProps) {
     const BackButton = WebApp.BackButton;
     BackButton.show();
     BackButton.onClick(function() {
-        // WebApp.showAlert("BackButton clicked");
         BackButton.hide();
     });
     WebApp.onEvent('backButtonClicked', function() {
-        navigate('/catalog')
+        navigate('/')
     });
     return (
         <>
