@@ -25,7 +25,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/catalog' element={<CatalogList />} />
+        <Route index element={<CatalogList />} />
         <Route path='/item' element={<OneCatalogItem title={'Porsche 911 carrera RS 2.7 (Main)'} price={361} description={desc} coverUrl={'https://ae03.alicdn.com/kf/S0cd54ee82b714fc083f139f0ce254794B.jpg'} currency={'RUB'} shopID={1} />} />
       </Routes>
     </BrowserRouter>
