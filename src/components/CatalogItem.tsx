@@ -20,3 +20,8 @@ export default function CatalogItem(props: CatalogItemProps) {
         </>
     )
 }
+
+/*
+    /item/*ID*
+    /catalog*ID*
+*/

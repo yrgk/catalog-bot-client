@@ -14,7 +14,8 @@ h5 {
 
 .catalogItem {
     /* background-color: rgb(107, 107, 107); */
-    background-color: #8D99AE;
+    /* background-color: #8D99AE; */
+    background-color: var(--tg-theme-bg-color);
     /* max-width: 200px; */
     max-width: 45%;
     /* min-height: 200px; */

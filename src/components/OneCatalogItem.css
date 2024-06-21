@@ -1,0 +1,26 @@
+h1, h2 {
+    margin: 0 auto;
+}
+
+.OneCatalogItem {
+    width: 100%;
+    /* background-color: aqua; */
+    margin: 0 auto;
+}
+
+.OneCatalogItemCoverBox {
+    margin: 3%;
+}
+
+.OneCatalogItemTextBox {
+    margin: 3%;
+}
+
+.cart {
+    background-color: rgb(43, 185, 137);
+    display: flex;
+    align-content: center;
+    border-radius: 5px;
+    margin: 20px 0px;
+
+}
