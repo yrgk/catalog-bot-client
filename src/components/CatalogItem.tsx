@@ -1,11 +1,12 @@
 // import WebApp from "@twa-dev/sdk"
+import { useNavigate } from "react-router-dom"
 import "./CatalogItem.css"
 
 export default function CatalogItem(props: CatalogItemProps) {
-
+    const navigate = useNavigate()
     return (
         <>
-        <div className="catalogItem">
+        <div onClick={() => navigate('/item')} className="catalogItem">
             <div className="catalogItemCoverBox">
                 <img className="catalogItemCover" src={props.coverUrl} alt="Not loaded" loading="lazy" />
             </div>

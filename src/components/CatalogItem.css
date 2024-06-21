@@ -1,6 +1,6 @@
 h3 {
     /* color: black; */
-    color: #EDF2F4;
+    color: var(--tg-theme-text-color);
     /* background-color: brown; */
     margin: 0 auto;
 }
