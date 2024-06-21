@@ -1,4 +1,4 @@
-import WebApp from "@twa-dev/sdk"
+// import WebApp from "@twa-dev/sdk"
 import "./CatalogItem.css"
 
 export default function CatalogItem(props: CatalogItemProps) {
