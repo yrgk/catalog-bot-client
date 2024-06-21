@@ -5,12 +5,22 @@ import './components/CatalogItem'
 // import CatalogItem from './components/CatalogItem'
 import CatalogList from './components/CatalogList'
 import OneCatalogItem from './components/OneCatalogItem'
+import { useEffect } from 'react'
+import WebApp from '@twa-dev/sdk'
 // import CatalogItem from './components/CatalogItem'
 
 const desc = "Машинка Hot Wheels коллекционная в ассортименте C4982 Масштабные литые модели автомобилей под брендом Hot Wheels выпускаются с 1968 года. За эти годы Hot Wheels превратился в глобальный всемирно известный бренд. Сегодня Hot Wheels выпускает ежегодно более 400 моделей, создавая самые крутые и необычные машинки. Линейка литых автомобилей Hot Wheels разделена на множество мини-коллекций. Каждая мини-коллекция включает в себя тематические транспортные средства, начиная от маслкаров, спортивных автомобилей, гоночных автомобилей, пикапов и трендовых родстеров и заканчивая фантазийными автомобилями необычного дизайна. Соберите все модели машинок Hot Wheels и пополните свою коллекцию новыми интересными экземплярами (каждая машинка продается отдельно). Hot Wheels и связанные с ним товарные знаки, и фирменный стиль принадлежат Mattel."
+const tg = WebApp
 
 function App() {
   // const [count, setCount] = useState(0)
+  useEffect(() => {
+    tg.ready();
+  }, [])
+
+  // const onClose = () => {
+  //   tg.close()
+  // }
 
   return (
     <BrowserRouter>
