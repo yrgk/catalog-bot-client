@@ -5,9 +5,7 @@ export default function CatalogItem(props: CatalogItemProps) {
 
     return (
         <>
-        <div className="catalogItem" style={{
-            backgroundColor: WebApp.backgroundColor
-        }}>
+        <div className="catalogItem">
             <div className="catalogItemCoverBox">
                 <img className="catalogItemCover" src={props.coverUrl} alt="Not loaded" loading="lazy" />
             </div>
