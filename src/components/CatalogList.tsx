@@ -2,25 +2,25 @@ import WebApp from '@twa-dev/sdk'
 import CatalogHeader from './CatalogHeader'
 import CatalogItem from './CatalogItem'
 import './CatalogList.css'
-import { useState } from 'react'
+// import { useState } from 'react'
 
 export default function CatalogList() {
-    const [itemCount, setItemCount] = useState(0)
-    const [totalCost, setTotalCost] = useState(0)
+    // const [itemCount, setItemCount] = useState(0)
+    // const [totalCost, setTotalCost] = useState(0)
     const tg = WebApp
 
     tg.onEvent('mainButtonClicked', function() {
         tg.HapticFeedback.selectionChanged()
     })
 
-    if (itemCount === 0) {
-        tg.MainButton.hide();
-    } else {
-        tg.MainButton.show();
-        tg.MainButton.setParams({
-            text: `Buy ${itemCount} items | ${totalCost}RUB`
-        })
-    }
+    // if (itemCount === 0) {
+    //     tg.MainButton.hide();
+    // } else {
+    //     tg.MainButton.show();
+    //     tg.MainButton.setParams({
+    //         // text: `Buy ${itemCount} items | ${totalCost}RUB`
+    //     })
+    // }
 
     return (
         <>
