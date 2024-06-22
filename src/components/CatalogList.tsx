@@ -21,6 +21,7 @@ export default function CatalogList() {
             tg.MainButton.hide();
         } else {
             tg.MainButton.show();
+            tg.HapticFeedback.impactOccurred('medium')
             tg.MainButton.setParams({
                 text: `Buy ${itemCount} items | ${totalCost}RUB`
             })

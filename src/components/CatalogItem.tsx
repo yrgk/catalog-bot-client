@@ -21,7 +21,7 @@ export default function CatalogItem(props: CatalogItemProps, onAdd: Function) {
                 <h5>{ props.title }</h5>
             </div>
 
-            <div className="addButton" onClick={() => onAddHandler}>
+            <div className="addButton" onClick={() => onAddHandler()}>
                     <h5 className="addButtonText">Add</h5>
             </div>
         </div>

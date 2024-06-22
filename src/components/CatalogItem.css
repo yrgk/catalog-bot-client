@@ -60,6 +60,8 @@ h5 {
 
 .addButton {
     background-color: var(--tg-theme-button-color);
+    width: 100%;
+    margin: 5px;
     /* background-color: aqua; */
     display: flex;
     align-content: center;
