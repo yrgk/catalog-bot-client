@@ -4,5 +4,5 @@ type CatalogItemProps = {
     price: number,
     coverUrl: string,
     currency: string,
-    onAdd: Function
+    // onAdd: Function
 }
