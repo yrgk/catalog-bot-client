@@ -1,31 +1,31 @@
 // import WebApp from "@twa-dev/sdk"
 import { useNavigate } from "react-router-dom"
 import "./CatalogItem.css"
-import { useState } from "react"
-import WebApp from "@twa-dev/sdk"
+// import { useState } from "react"
+// import WebApp from "@twa-dev/sdk"
 
 export default function CatalogItem(props: CatalogItemProps) {
     const navigate = useNavigate()
-    const [itemCount, setItemCount] = useState(0)
-    const [totalCost, setTotalCost] = useState(0)
-    const tg = WebApp
+    // const [itemCount, setItemCount] = useState(0)
+    // const [totalCost, setTotalCost] = useState(0)
+    // const tg = WebApp
 
     // onAdd(props);
-    const onAdd = () => {
-        setItemCount(itemCount => itemCount + 1)
-        setTotalCost(totalCost => totalCost += props.price)
-        tg.HapticFeedback.selectionChanged()
+    // const onAdd = () => {
+    //     setItemCount(itemCount => itemCount + 1)
+    //     setTotalCost(totalCost => totalCost += props.price)
+    //     tg.HapticFeedback.selectionChanged()
 
-        if (itemCount === 0) {
-            tg.MainButton.hide();
-        } else {
-            tg.MainButton.show();
-            tg.HapticFeedback.impactOccurred('medium')
-            tg.MainButton.setParams({
-                text: `Buy ${itemCount} items | ${totalCost}RUB`
-            })
-        }
-    }
+    //     if (itemCount === 0) {
+    //         tg.MainButton.hide();
+    //     } else {
+    //         tg.MainButton.show();
+    //         tg.HapticFeedback.impactOccurred('medium')
+    //         tg.MainButton.setParams({
+    //             text: `Buy ${itemCount} items | ${totalCost}RUB`
+    //         })
+    //     }
+    // }
 
     return (
         <>
@@ -42,7 +42,7 @@ export default function CatalogItem(props: CatalogItemProps) {
             </div>
 
             <div className="addButton" onClick={() => onAdd()}>
-                    <h5 className="addButtonText">Add</h5>
+                <h5 className="addButtonText">Add</h5>
             </div>
         </div>
         </>
