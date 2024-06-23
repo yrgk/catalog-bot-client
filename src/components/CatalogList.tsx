@@ -7,7 +7,6 @@ import { useEffect, useState } from 'react'
 export default function CatalogList() {
     const [itemCount, setItemCount] = useState(0)
     const [totalCost, setTotalCost] = useState(0)
-    const [addedItems, setAddedItems] = useState([]);
     const tg = WebApp
 
     useEffect(() => {
@@ -65,7 +64,7 @@ export default function CatalogList() {
     return (
         <>
         <CatalogHeader title={'Hot Wheels shop Kazan'} />
-        <h1>{`count: ${itemCount}, cost: ${totalCost}`}</h1>
+        {/* <h1>{`count: ${itemCount}, cost: ${totalCost}`}</h1> */}
         <div className='catalogList'>
             {items.map(item => (
                 <CatalogItem
