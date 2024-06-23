@@ -4,7 +4,9 @@ import "./CatalogItem.css"
 // import { useState } from "react"
 // import WebApp from "@twa-dev/sdk"
 
-export default function CatalogItem(props: CatalogItemProps) {
+// const CatalogItem = ({id, title, price, coverUrl, currency, onAction}) => {
+// const CatalogItem = ({props, onAction}) => {
+function CatalogItem(props: CatalogItemProps) {
     const navigate = useNavigate()
     // const [itemCount, setItemCount] = useState(0)
     // const [totalCost, setTotalCost] = useState(0)
@@ -27,6 +29,10 @@ export default function CatalogItem(props: CatalogItemProps) {
     //     }
     // }
 
+    const onActionHandler = () => {
+        props.onAction(props.price);
+    }
+
     return (
         <>
         <div className="catalogItem">
@@ -36,15 +42,17 @@ export default function CatalogItem(props: CatalogItemProps) {
 
             <div onClick={() => navigate('/item')} className="catalogItemTextBox">
                 <h3 id="price">{ props.price }{ props.currency }</h3>
-                <h5>{ props.title }</h5>
+                <h5 className="title">{ props.title }</h5>
                 {/* <h5>{ itemCount }</h5>
                 <h5>{ totalCost }</h5> */}
             </div>
 
-            <div className="addButton" onClick={() => onAdd()}>
+            <div className="addButton" onClick={onActionHandler}>
                 <h5 className="addButtonText">Add</h5>
             </div>
         </div>
         </>
     )
 }
+
+export default CatalogItem;

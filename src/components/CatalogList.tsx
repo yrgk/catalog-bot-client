@@ -2,15 +2,18 @@ import WebApp from '@twa-dev/sdk'
 import CatalogHeader from './CatalogHeader'
 import CatalogItem from './CatalogItem'
 import './CatalogList.css'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function CatalogList() {
     const [itemCount, setItemCount] = useState(0)
     const [totalCost, setTotalCost] = useState(0)
+    const [addedItems, setAddedItems] = useState([]);
     const tg = WebApp
 
-    tg.onEvent('mainButtonClicked', function() {
-        tg.HapticFeedback.impactOccurred('medium')
+    useEffect(() => {
+        tg.onEvent('mainButtonClicked', function() {
+            tg.HapticFeedback.impactOccurred('medium')
+        })
     })
 
     const items = [
@@ -26,10 +29,10 @@ export default function CatalogList() {
         {id: 10, title: 'Ferrari LaFerrari', price: 800, coverUrl: 'https://ae04.alicdn.com/kf/Se367485c46e04756a81fc7f3c8476d9cH.jpg', currency: 'RUB'},
     ]
 
-    const onAdd = () => {
+    const onAction = (price: number) => {
         setItemCount(itemCount => itemCount + 1)
-        setTotalCost(totalCost => totalCost += props.price)
-        tg.HapticFeedback.selectionChanged()
+        setTotalCost(totalCost => totalCost += price)
+        tg.HapticFeedback.impactOccurred('medium')
 
         if (itemCount === 0) {
             tg.MainButton.hide();
@@ -62,6 +65,7 @@ export default function CatalogList() {
     return (
         <>
         <CatalogHeader title={'Hot Wheels shop Kazan'} />
+        <h1>{`count: ${itemCount}, cost: ${totalCost}`}</h1>
         <div className='catalogList'>
             {items.map(item => (
                 <CatalogItem
@@ -70,6 +74,9 @@ export default function CatalogList() {
                     price={item.price}
                     coverUrl={item.coverUrl}
                     currency={item.currency}
+                    onAction={onAction}
+                    // onAction={() => onAction(item)}
+                    // onAction={onAction}
                 />
             ))}
         </div>
