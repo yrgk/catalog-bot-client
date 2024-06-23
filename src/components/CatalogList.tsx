@@ -33,9 +33,16 @@ export default function CatalogList() {
         setTotalCost(totalCost => totalCost += price)
         tg.HapticFeedback.impactOccurred('medium')
 
-        if (itemCount === 0) {
-            tg.MainButton.hide();
-        } else {
+        // if (itemCount === 0) {
+        //     tg.MainButton.hide();
+        // } else {
+        //     tg.MainButton.show();
+        //     tg.HapticFeedback.impactOccurred('medium')
+        //     tg.MainButton.setParams({
+        //         text: `Buy ${itemCount} items | ${totalCost}RUB`
+        //     })
+        // }
+        if (itemCount !== 0) {
             tg.MainButton.show();
             tg.HapticFeedback.impactOccurred('medium')
             tg.MainButton.setParams({
