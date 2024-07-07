@@ -25,8 +25,9 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route index element={<CatalogList />} />
-        <Route path='/item' element={<OneCatalogItem title={'Porsche 911 carrera RS 2.7 (Main)'} price={361} description={desc} coverUrl={'https://ae03.alicdn.com/kf/S0cd54ee82b714fc083f139f0ce254794B.jpg'} currency={'RUB'} shopID={1} />} />
+        <Route index element={<h1>Main page</h1>}/>
+        <Route path='/catalog/:shopId' element={<CatalogList />} />
+        <Route path='/item/:itemId' element={<OneCatalogItem title={'Porsche 911 carrera RS 2.7 (Main)'} price={361} description={desc} coverUrl={'https://ae03.alicdn.com/kf/S0cd54ee82b714fc083f139f0ce254794B.jpg'} currency={'RUB'} shopID={1} />} />
         <Route path='/cart' element={<Cart/>} />
       </Routes>
     </BrowserRouter>

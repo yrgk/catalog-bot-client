@@ -29,26 +29,23 @@ function CatalogItem(props: CatalogItemProps) {
     //     }
     // }
 
-    const onActionHandler = () => {
-        props.onAction(props.price);
+    const onAddHandler = () => {
+        props.onAdd(props.price);
     }
 
     return (
         <>
         <div className="catalogItem">
-            <div onClick={() => navigate('/item')} className="catalogItemCoverBox">
-                <img className="catalogItemCover" src={props.coverUrl} alt="Not loaded" loading="lazy" />
+            <div onClick={() => navigate(`/item/${props.id}`)} className="catalogItemCoverBox">
+                <img className="catalogItemCover" src={props.cover_url} alt="Not loaded" loading="lazy" />
             </div>
 
-            <div onClick={() => navigate('/item')} className="catalogItemTextBox">
+            <div onClick={() => navigate(`/item/${props.id}`)} className="catalogItemTextBox">
                 <h3 id="price">{ props.price }{ props.currency }</h3>
                 <h5 className="title">{ props.title }</h5>
-                {/* <h5>{ itemCount }</h5>
-                <h5>{ totalCost }</h5> */}
             </div>
-
-            <div className="addButton" onClick={onActionHandler}>
-                <h5 className="addButtonText">Add</h5>
+            <div className="addButton" onClick={onAddHandler}>
+                <h5 className="addButtonText">В корзину</h5>
             </div>
         </div>
         </>

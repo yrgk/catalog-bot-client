@@ -1,20 +1,24 @@
 interface CatalogItemProps {
     id: number;
     title: string;
+    description: string;
     price: number;
-    coverUrl: string;
+    cover_url: string;
     currency: string;
-    onAction: (price: number) => void;
-    // onAction: (props: CatalogItemProps) => void,
+    onAdd: (price: number) => void;
+}
+
+type CatalogItem = {
+    id: number;
+    title: string;
+    description: string;
+    price: number;
+    cover_url: string;
+    currency: string;
+    shop_id: number;
 }
 
 interface CatalogListProps {
-    items: {
-        id: number;
-        title: string;
-        price: number;
-        coverUrl: string;
-        currency: string;
-    }[];
-    onAction: (price: number) => void,
+    items: CatalogItem[];
+    onAdd: (price: number) => void,
 }

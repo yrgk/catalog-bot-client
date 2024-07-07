@@ -1,15 +1,12 @@
-h3 {
+h3, h4, h5, h6 {
     /* color: black; */
     color: var(--tg-theme-text-color);
     /* background-color: brown; */
     margin: 0 auto;
 }
-h5 {
-    margin: 0 auto;
-}
 
 #price {
-    /* font-weight: 700; */
+    font-size: medium;
     margin-bottom: 2px;
 }
 
@@ -18,9 +15,7 @@ h5 {
     background-color: var(--tg-theme-bg-color);
     /* background-color: #8D99AE; */
     /* max-width: 200px; */
-    max-width: 45%;
-    height: 300px;
-    /* max-height: 390px; */
+    max-width: 47%;
 
     /* padding: 5px; */
 
@@ -52,13 +47,6 @@ h5 {
 .catalogItemTextBox {
     width: 94%;
     margin: 5px;
-    /* text-align: start; */
-    /* display: flex; */
-    /* flex-wrap:nowrap; */
-    /* text-wrap: nowrap; */
-    /* align-items:end; */
-    /* justify-content: center; */
-    /* background-color: aliceblue; */
 }
 
 .title {
