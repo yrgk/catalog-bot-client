@@ -10,7 +10,7 @@ const apiClient = axios.create({
     baseURL: "https://catalog-bot-api.onrender.com/",
     headers: {
         'Access-Control-Allow-Origin': '*',
-        'Content-Type': 'application/json', //this line solved cors
+        'Content-Type': 'application/json',
     },
 });
 
