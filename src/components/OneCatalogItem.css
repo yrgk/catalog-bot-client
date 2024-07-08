@@ -2,31 +2,93 @@ h1, h2 {
     margin: 0 auto;
 }
 
-h3 {
-    /* font-weight: 400; */
+.inButtonTitle {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: var(--tg-theme-button-text-color);
+}
+
+.oneTitle {
+    margin-bottom: 10px;
 }
 
 .OneCatalogItem {
-    width: 100%;
+    width: 100vw;
+    height: 100%;
     /* background-color: aqua; */
     margin: 0 auto;
 }
 
+.priceTitleBlock {
+    padding: 5px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    background-color: var(--tg-theme-bg-color);
+    /* background-color: aquamarine; */
+}
+
+.descriptionTitle {
+    margin: 10px 0px 2px 5px;
+    color: var(--tg-theme-section-header-text-color);
+}
+
+.descriptionBlock {
+    padding: 5px;
+    border-radius: 10px;
+    background-color: var(--tg-theme-bg-color);
+    /* background-color: aquamarine; */
+
+}
+
+.oneFooter {
+    /* background-color: aquamarine; */
+    /* bottom: 0px; */
+    /* position: sticky; */
+    position: fixed;
+    /* margin: 3%; */
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    /* color: white; */
+    /* text-align: center; */
+}
+
 .OneCatalogItemCoverBox {
     margin: 3%;
+    /* background-color: aqua; */
 }
 
 .OneCatalogItemTextBox {
     margin: 3%;
 }
 
+#left {
+    width: 20%;
+}
+
+#center {
+    width: 80%;
+}
+
+#right {
+    width: 20%;
+}
+
 .cart {
     background-color: var(--tg-theme-button-color);
+    /* background-color: aqua; */
     display: flex;
     align-content: center;
     border-radius: 10px;
-    margin: 20px 0px;
+    margin: 3%;
 
+}
+
+.cartBuild {
+    display: flex;
+    flex-direction: row;
+    /* width: 100%; */
+    /* background-color: bisque; */
 }
 
 .addToCart {

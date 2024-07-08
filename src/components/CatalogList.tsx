@@ -34,22 +34,24 @@ export default function CatalogList() {
     useEffect(() => {
         fetchCatalog(Number(shopId))
         tg.onEvent('mainButtonClicked', function() {
-            tg.HapticFeedback.impactOccurred('medium')
+            tg.HapticFeedback.impactOccurred('heavy')
         })
     }, []);
 
     const onAdd = (price: number) => {
-        setItemCount(itemCount => itemCount + 1)
-        setTotalCost(totalCost => totalCost += price)
-        tg.HapticFeedback.impactOccurred('light')
-        if (itemCount !== 0) {
-            tg.MainButton.show();
-            tg.HapticFeedback.impactOccurred('medium')
-            tg.MainButton.setParams({
-                text: `${itemCount} товаров | ${totalCost}RUB`
-            })
-        }
-    }
+        setItemCount(prevItemCount => {
+            const newCount = prevItemCount + 1;
+            return newCount;
+        });
+        setTotalCost(prevTotalCost => prevTotalCost + price);
+
+        // Показать главную кнопку после первого добавления товара
+        tg.MainButton.show();
+        tg.HapticFeedback.impactOccurred('medium');
+        tg.MainButton.setParams({
+            text: `${itemCount + 1} товаров | ${totalCost + price}RUB`
+        });
+    };
 
     return (
         <>
@@ -65,6 +67,7 @@ export default function CatalogList() {
                     price={item.price}
                     cover_url={item.cover_url}
                     currency={item.currency}
+                    shop_id={Number(shopId)}
                     onAdd={onAdd}
                 />
             ))}

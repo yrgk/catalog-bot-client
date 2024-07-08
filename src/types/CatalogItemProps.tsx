@@ -5,6 +5,7 @@ interface CatalogItemProps {
     price: number;
     cover_url: string;
     currency: string;
+    shop_id: number;
     onAdd: (price: number) => void;
 }
 
