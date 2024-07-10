@@ -16,7 +16,8 @@ function CatalogItem(props: CatalogItemProps) {
             price: props.price,
             cover_url: props.cover_url,
             currency: props.currency,
-            description: props.description
+            description: props.description,
+            shop_id: props.shop_id,
         } });
     };
 

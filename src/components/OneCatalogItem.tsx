@@ -43,9 +43,10 @@ export default function OneCatalogItem() {
     const navigate = useNavigate()
     const location = useLocation();
     const tg = WebApp;
+    const BackButton = tg.BackButton;
     const { title, price, cover_url, currency, description, shop_id } = location.state as CatalogItemProps;
 
-    const BackButton = WebApp.BackButton;
+    tg.MainButton.hide()
     BackButton.show();
     BackButton.onClick(function() {
         BackButton.hide();
@@ -61,18 +62,21 @@ export default function OneCatalogItem() {
 
 
     const handleAddToCart = () => {
+        tg.HapticFeedback.impactOccurred('medium');
         setInCart(true);
         setItemCount(1);
         setTotalCost(prevCost => prevCost + price)
     };
 
     const handleIncrement = () => {
+        tg.HapticFeedback.impactOccurred('medium');
         setItemCount(prevCount => prevCount + 1);
         setTotalCost(prevCost => prevCost + price)
         console.log(totalCost)
     };
 
     const handleDecrement = () => {
+        tg.HapticFeedback.impactOccurred('medium');
         setItemCount(prevCount => Math.max(prevCount - 1, 0));
         setTotalCost(prevCost => prevCost - price)
         if (itemCount === 1) {
@@ -82,7 +86,7 @@ export default function OneCatalogItem() {
 
     return (
         <>
-            {/* <h1>Item {itemCount} {totalCost}</h1> */}
+            {/* <div onClick={onBackClicked}>Item</div> */}
             <div className="OneCatalogItem">
                 <div className="OneCatalogItemCoverBox">
                     <img className="catalogItemCover" src={ cover_url } alt="Not loaded" loading="lazy" />
@@ -90,13 +94,13 @@ export default function OneCatalogItem() {
                 <div className="OneCatalogItemTextBox">
 
                     <div className='priceTitleBlock'>
-                        <h1 id="onePrice">{ String(price) }{ currency }</h1>
+                        <h1 className="onePrice">{ String(price) }{ currency }</h1>
                         <h2 className='oneTitle'>{ title }</h2>
                     </div>
 
                     <h4 className='descriptionTitle'>Описание</h4>
                     <div className="descriptionBlock">
-                        <h4>{ description }</h4>
+                        <h5>{ description }</h5>
                     </div>
 
                     <footer className='oneFooter'>
@@ -107,20 +111,20 @@ export default function OneCatalogItem() {
                                 (
                                     <div className='cartBuild'>
 
-                                    <div className="cart" id='left'>
-                                        <h2 className='inButtonTitle' onClick={handleDecrement}>-</h2>
+                                    <div onClick={handleDecrement} className="cart" id='left'>
+                                        <h4 className='inButtonTitle'>-</h4>
                                     </div>
                                     <div className="cart" id='center'>
-                                        <h2 className='inButtonTitle'>{itemCount}</h2>
+                                        <h4 className='inButtonTitle'>{itemCount}</h4>
                                     </div>
-                                    <div className="cart" id='right'>
-                                        <h2 className='inButtonTitle' onClick={handleIncrement}>+</h2>
+                                    <div onClick={handleIncrement} className="cart" id='right'>
+                                        <h4 className='inButtonTitle'>+</h4>
                                     </div>
 
                                     </div>
                                 ) : (
-                                    <div className="cart" onClick={handleAddToCart}>
-                                        <h2 className='inButtonTitle'>В корзину</h2>
+                                    <div className="cartButton" onClick={handleAddToCart}>
+                                        <h4 className='inButtonTitle'>В корзину</h4>
                                     </div>
                                 )
                             }
