@@ -27,7 +27,8 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route index element={<h1>Main page</h1>}/>
+        {/* <Route index element={<h1>Main page</h1>}/> */}
+        <Route index element={<CatalogList />}/>
         <Route path='/catalog' element={<CatalogList />} />
         <Route path='/item/:itemId' element={<OneCatalogItem/>} />
         <Route path='/cart' element={<Cart/>} />
