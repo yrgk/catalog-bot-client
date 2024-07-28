@@ -32,7 +32,6 @@ export default function CatalogList() {
         )
     }
 
-    // const fetchCatalog = (shop_id: number) => {
     const fetchCatalog = () => {
         apiClient.get(`/catalog/${startParam}`)
             .then((response) => {
@@ -40,9 +39,17 @@ export default function CatalogList() {
                 setShopTitle(response.data.shop_title)
             })
     }
+    // const fetchCatalog = (shop_id: number) => {
+    //     apiClient.get(`/catalog/${shop_id}`)
+    //         .then((response) => {
+    //             setItems(response.data.items);
+    //             setShopTitle(response.data.shop_title)
+    //         })
+    // }
 
     useEffect(() => {
         fetchCatalog()
+        // fetchCatalog(Number(shopId))
         tg.onEvent('mainButtonClicked', function() {
             tg.HapticFeedback.impactOccurred('heavy')
         })

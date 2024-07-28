@@ -29,7 +29,7 @@ function App() {
       <Routes>
         {/* <Route index element={<h1>Main page</h1>}/> */}
         <Route index element={<CatalogList />}/>
-        <Route path='/catalog' element={<CatalogList />} />
+        <Route path='/catalog/:shopId' element={<CatalogList />} />
         <Route path='/item/:itemId' element={<OneCatalogItem/>} />
         <Route path='/cart' element={<Cart/>} />
       </Routes>
