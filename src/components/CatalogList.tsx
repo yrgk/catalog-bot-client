@@ -21,10 +21,20 @@ export default function CatalogList() {
     const [shopTitle, setShopTitle] = useState("")
     const { shopId } = useParams();
     const tg = WebApp;
+    let startParam = Number(tg.initDataUnsafe.start_param)
 
 
-    const fetchCatalog = (shop_id: number) => {
-        apiClient.get(`/catalog/${shop_id}`)
+    if (!startParam) {
+        return (
+            <>
+            <h1>There is no items</h1>
+            </>
+        )
+    }
+
+    // const fetchCatalog = (shop_id: number) => {
+    const fetchCatalog = () => {
+        apiClient.get(`/catalog/${startParam}`)
             .then((response) => {
                 setItems(response.data.items);
                 setShopTitle(response.data.shop_title)
@@ -32,7 +42,7 @@ export default function CatalogList() {
     }
 
     useEffect(() => {
-        fetchCatalog(Number(shopId))
+        fetchCatalog()
         tg.onEvent('mainButtonClicked', function() {
             tg.HapticFeedback.impactOccurred('heavy')
         })
@@ -72,9 +82,6 @@ export default function CatalogList() {
                 />
             ))}
         </div>
-        {/* <div className="bottomPagination">
-            <h3>1-8 / 146</h3>
-        </div> */}
         </>
     )
 }

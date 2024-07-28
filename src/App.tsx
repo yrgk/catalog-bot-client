@@ -28,7 +28,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route index element={<h1>Main page</h1>}/>
-        <Route path='/catalog/:shopId' element={<CatalogList />} />
+        <Route path='/catalog' element={<CatalogList />} />
         <Route path='/item/:itemId' element={<OneCatalogItem/>} />
         <Route path='/cart' element={<Cart/>} />
       </Routes>
