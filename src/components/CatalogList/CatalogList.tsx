@@ -1,28 +1,28 @@
 import WebApp from '@twa-dev/sdk'
-import axios from 'axios'
-import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
-import CatalogHeader from '../CatalogHeader/CatalogHeader'
+// import axios from 'axios'
+// import { useEffect, useState } from 'react'
+// import { useParams } from 'react-router-dom'
+// import CatalogHeader from '../CatalogHeader/CatalogHeader'
 // import CatalogItem from '../CatalogItem/CatalogItem'
 import './CatalogList.css'
 
-const apiClient = axios.create({
-    baseURL: "http://185.197.75.220:8000/",
-    headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Content-Type': 'application/json',
-    },
-});
+// const apiClient = axios.create({
+//     baseURL: "http://185.197.75.220:8000/",
+//     headers: {
+//         'Access-Control-Allow-Origin': '*',
+//         'Content-Type': 'application/json',
+//     },
+// });
 
 export default function CatalogList() {
     // const [itemCount, setItemCount] = useState(0);
     // const [totalCost, setTotalCost] = useState(0);
     // const [items, setItems] = useState<CatalogItem[]>([]);
     // const [currency, setCurrency] = useState("")
-    const [shopTitle, setShopTitle] = useState("")
-    let { shopId } = useParams();
+    // const [shopTitle, setShopTitle] = useState("")
+    // let { shopId } = useParams();
     const tg = WebApp;
-    shopId = tg.initDataUnsafe.start_param
+    let shopId = tg.initDataUnsafe.start_param
 
 
     // if (!startParam) {
@@ -75,8 +75,8 @@ export default function CatalogList() {
 
     return (
         <>
-        <CatalogHeader title={shopTitle}/>
-        {/* <h1>{`shop: ${shopId}`}</h1> */}
+        {/* <CatalogHeader title={shopTitle}/> */}
+        <h1>{`shop: ${shopId}`}</h1>
         {/* <h1>{`count: ${itemCount}, cost: ${totalCost}`}</h1> */}
         <div className='catalogList'>
             <h1>{shopId}</h1>
