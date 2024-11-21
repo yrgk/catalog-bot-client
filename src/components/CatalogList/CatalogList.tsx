@@ -22,7 +22,7 @@ export default function CatalogList() {
     const [shopTitle, setShopTitle] = useState("")
     // let { shopId } = useParams();
     const tg = WebApp;
-    const shopId = tg.initDataUnsafe.start_param
+    const shopId = Number(tg.initDataUnsafe.start_param)
 
 
     if (!shopId) {
@@ -33,26 +33,27 @@ export default function CatalogList() {
         )
     }
 
-    // const fetchCatalog = () => {
-    //     apiClient.get(`api/v1/catalog/${startParam}`)
-    //         .then((response) => {
-    //             setItems(response.data.items);
-    //             setShopTitle(response.data.shop_title)
-    //         })
-    // }
-
-    const fetchCatalog = (shop_id: number) => {
-        apiClient.get(`api/v1/catalog/${shop_id}`)
+    const fetchCatalog = () => {
+        apiClient.get(`api/v1/catalog/${shopId}`)
             .then((response) => {
                 setItems(response.data.items);
-                setShopTitle(response.data.shop_title)
-                setCurrency(response.data.currency)
+                setShopTitle(response.data.shop_title);
+                setCurrency(response.data.currency);
             })
     }
 
+    // const fetchCatalog = (shop_id: number) => {
+    //     apiClient.get(`api/v1/catalog/${shop_id}`)
+    //         .then((response) => {
+    //             setItems(response.data.items);
+    //             setShopTitle(response.data.shop_title)
+    //             setCurrency(response.data.currency)
+    //         })
+    // }
+
     useEffect(() => {
-        // fetchCatalog()
-        fetchCatalog(Number(shopId))
+        fetchCatalog()
+        // fetchCatalog(Number(shopId))
         tg.onEvent('mainButtonClicked', function() {
             tg.HapticFeedback.impactOccurred('heavy')
         })
