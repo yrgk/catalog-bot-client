@@ -1,7 +1,7 @@
 import WebApp from '@twa-dev/sdk'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-// import { useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import CatalogHeader from '../CatalogHeader/CatalogHeader'
 import CatalogItem from '../CatalogItem/CatalogItem'
 import './CatalogList.css'
@@ -20,21 +20,22 @@ export default function CatalogList() {
     const [items, setItems] = useState<CatalogItem[]>([]);
     const [currency, setCurrency] = useState("")
     const [shopTitle, setShopTitle] = useState("")
-    // let { shopId } = useParams();
+    let { shopId } = useParams();
     const tg = WebApp;
-    const shopId = Number(tg.initDataUnsafe.start_param)
+    // const shopId = Number(tg.initDataUnsafe.start_param)
 
 
-    if (!shopId) {
-        return (
-            <>
-            <h1>There isn't items</h1>
-            </>
-        )
-    }
+    // if (!shopId) {
+    //     return (
+    //         <>
+    //         <h1>There isn't items</h1>
+    //         </>
+    //     )
+    // }
 
     const fetchCatalog = () => {
-        apiClient.get(`api/v1/catalog/${shopId}`)
+        // apiClient.get(`api/v1/catalog/${shopId}`)
+        apiClient.get(`api/v1/catalog/123`)
             .then((response) => {
                 setItems(response.data.items);
                 setShopTitle(response.data.shop_title);
@@ -78,7 +79,6 @@ export default function CatalogList() {
         <>
         <CatalogHeader title={shopTitle}/>
         {/* <h1>{`count: ${itemCount}, cost: ${totalCost}`}</h1> */}
-        <h1>id: { shopId }</h1>
         <div className='catalogList'>
             {items.map((item) => (
                 <CatalogItem
