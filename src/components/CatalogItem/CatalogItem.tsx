@@ -9,9 +9,9 @@ function CatalogItem(props: CatalogItemProps) {
     };
 
 
-    const onAddHandler = () => {
-        props.onAdd(props.price);
-    }
+    // const onAddHandler = () => {
+    //     props.onAdd(props.price);
+    // }
 
     return (
         <>
