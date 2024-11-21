@@ -22,16 +22,16 @@ export default function CatalogList() {
     const [shopTitle, setShopTitle] = useState("")
     // let { shopId } = useParams();
     const tg = WebApp;
-    let shopId = tg.initDataUnsafe.start_param
+    const shopId = tg.initDataUnsafe.start_param
 
 
-    // if (!startParam) {
-    //     return (
-    //         <>
-    //         <h1>There is no items</h1>
-    //         </>
-    //     )
-    // }
+    if (!shopId) {
+        return (
+            <>
+            <h1>There is no items</h1>
+            </>
+        )
+    }
 
     // const fetchCatalog = () => {
     //     apiClient.get(`api/v1/catalog/${startParam}`)
@@ -78,7 +78,6 @@ export default function CatalogList() {
         <CatalogHeader title={shopTitle}/>
         {/* <h1>{`count: ${itemCount}, cost: ${totalCost}`}</h1> */}
         <div className='catalogList'>
-            <h1>{shopId}</h1>
             {items.map((item) => (
                 <CatalogItem
                     id={item.id}
