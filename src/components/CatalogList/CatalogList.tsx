@@ -20,9 +20,9 @@ export default function CatalogList() {
     const [items, setItems] = useState<CatalogItem[]>([]);
     const [currency, setCurrency] = useState("")
     const [shopTitle, setShopTitle] = useState("")
-    let { shopId } = useParams();
+    // let { shopId } = useParams();
     const tg = WebApp;
-    // const shopId = Number(tg.initDataUnsafe.start_param)
+    const shopId = Number(tg.initDataUnsafe.start_param)
 
 
     // if (!shopId) {
