@@ -1,13 +1,13 @@
 // import { useState } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
-import './components/CatalogItem'
+import './components/CatalogItem/CatalogItem'
 // import CatalogItem from './components/CatalogItem'
-import CatalogList from './components/CatalogList'
-import OneCatalogItem from './components/OneCatalogItem'
-import { useEffect } from 'react'
 import WebApp from '@twa-dev/sdk'
-import Cart from './components/Cart'
+import { useEffect } from 'react'
+import Cart from './components/Cart/Cart'
+import CatalogList from './components/CatalogList/CatalogList'
+import OneCatalogItem from './components/OneCatalogItem/OneCatalogItem'
 // import CatalogItem from './components/CatalogItem'
 //
 //

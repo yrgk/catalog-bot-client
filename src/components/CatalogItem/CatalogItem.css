@@ -13,7 +13,7 @@ h3, h4, h5, h6 {
 .catalogItem {
     /* background-color: rgb(107, 107, 107); */
     background-color: var(--tg-theme-bg-color);
-    /* background-color: #8D99AE; */
+    background-color: #8D99AE;
     /* max-width: 200px; */
 
     max-width: 45%;
@@ -55,10 +55,10 @@ h3, h4, h5, h6 {
 }
 
 .title {
-    white-space: nowrap;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
     overflow: hidden;
-    text-overflow: ellipsis;
-    /* text-wrap: nowrap; */
 }
 
 .addButton {
