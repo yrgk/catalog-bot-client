@@ -20,15 +20,15 @@ export default function CatalogList() {
     const [items, setItems] = useState<CatalogItem[]>([]);
     const [currency, setCurrency] = useState("")
     const [shopTitle, setShopTitle] = useState("")
-    let { shopId } = useParams();
+    // let { shopId } = useParams();
     const tg = WebApp;
-    // const shopId = tg.initDataUnsafe.start_param
+    const shopId = tg.initDataUnsafe.start_param
 
 
     if (!shopId) {
         return (
             <>
-            <h1>There is no items</h1>
+            <h1>There isn't items</h1>
             </>
         )
     }
@@ -77,6 +77,7 @@ export default function CatalogList() {
         <>
         <CatalogHeader title={shopTitle}/>
         {/* <h1>{`count: ${itemCount}, cost: ${totalCost}`}</h1> */}
+        <h1>id: { shopId }</h1>
         <div className='catalogList'>
             {items.map((item) => (
                 <CatalogItem
