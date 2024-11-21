@@ -1,7 +1,7 @@
 import WebApp from '@twa-dev/sdk'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+// import { useParams } from 'react-router-dom'
 import CatalogHeader from '../CatalogHeader/CatalogHeader'
 import CatalogItem from '../CatalogItem/CatalogItem'
 import './CatalogList.css'
