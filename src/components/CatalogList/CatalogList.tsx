@@ -1,7 +1,7 @@
 import WebApp from '@twa-dev/sdk'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-// import { useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import CatalogHeader from '../CatalogHeader/CatalogHeader'
 import CatalogItem from '../CatalogItem/CatalogItem'
 import './CatalogList.css'
@@ -20,9 +20,9 @@ export default function CatalogList() {
     const [items, setItems] = useState<CatalogItem[]>([]);
     const [currency, setCurrency] = useState("")
     const [shopTitle, setShopTitle] = useState("")
-    // let { shopId } = useParams();
+    let { shopId } = useParams();
     const tg = WebApp;
-    const shopId = tg.initDataUnsafe.start_param
+    // const shopId = tg.initDataUnsafe.start_param
 
 
     if (!shopId) {
