@@ -22,7 +22,7 @@ export default function CatalogList() {
     const [shopTitle, setShopTitle] = useState("")
     // let { shopId } = useParams();
     const tg = WebApp;
-    const shopId = Number(tg.initDataUnsafe.start_param)
+    // const shopId = Number(tg.initDataUnsafe.start_param)
 
 
     // if (!shopId) {
@@ -88,7 +88,7 @@ export default function CatalogList() {
                     price={item.price}
                     cover_url={item.cover_url}
                     currency={currency}
-                    shop_id={Number(shopId)}
+                    shop_id={Number(123)}
                     onAdd={onAdd}
                 />
             ))}
