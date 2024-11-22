@@ -6,7 +6,7 @@ import CatalogItem from '../CatalogItem/CatalogItem'
 import './CatalogList.css'
 
 const apiClient = axios.create({
-    baseURL: "http://185.197.75.220:8000/",
+    baseURL: "https://catalogio.space/",
     headers: {
         'Access-Control-Allow-Origin': '*',
         'Content-Type': 'application/json',
