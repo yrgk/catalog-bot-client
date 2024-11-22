@@ -25,7 +25,7 @@ export default function OneCatalogItem() {
     const [item, setItem] = useState<CatalogItem>();
 
     const fetchItem = (item_id: number) => {
-        axios.get(`http://185.197.75.220:8000/api/v1/item/${item_id}`)
+        axios.get(`https://catalogio.space/api/v1/item/${item_id}`)
             .then((response) => {
                 setItem(response.data)
             })
