@@ -10,7 +10,7 @@ h3, h4, h5, h6 {
 
 .catalogItem {
     background-color: var(--tg-theme-bg-color);
-    background-color: #8D99AE;
+    /* background-color: #8D99AE; */
     max-width: 45vw;
     /* max-height: 40vh; */
     margin: 5px;

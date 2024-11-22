@@ -20,8 +20,8 @@ export default function CatalogList() {
     const [currency, setCurrency] = useState("")
     const [shopTitle, setShopTitle] = useState("")
     const tg = WebApp;
-    // const shopId = Number(tg.initDataUnsafe.start_param)
-    const shopId = 123
+    const shopId = Number(tg.initDataUnsafe.start_param)
+    // const shopId = 123
 
 
     // if (!shopId) {
