@@ -20,20 +20,20 @@ export default function CatalogList() {
     const [currency, setCurrency] = useState("")
     const [shopTitle, setShopTitle] = useState("")
     const tg = WebApp;
-    const shopId = Number(tg.initDataUnsafe.start_param)
+    // const shopId = Number(tg.initDataUnsafe.start_param)
+    const shopId = 123
 
 
     // if (!shopId) {
     //     return (
     //         <>
-    //         <h1>There isn't items</h1>
+    //         <h1>There is not items</h1>
     //         </>
     //     )
     // }
 
     const fetchCatalog = () => {
         apiClient.get(`api/v1/catalog/${shopId}`)
-        // apiClient.get(`api/v1/catalog/123`)
             .then((response) => {
                 setItems(response.data.items);
                 setShopTitle(response.data.shop_title);
@@ -43,7 +43,6 @@ export default function CatalogList() {
 
     useEffect(() => {
         fetchCatalog()
-        // fetchCatalog(Number(shopId))
         tg.onEvent('mainButtonClicked', function() {
             tg.HapticFeedback.impactOccurred('heavy')
         })
@@ -67,7 +66,6 @@ export default function CatalogList() {
     return (
         <>
         <CatalogHeader title={shopTitle}/>
-        {/* <h1>{`count: ${itemCount}, cost: ${totalCost}`}</h1> */}
         <div className='catalogList'>
             {items.map((item) => (
                 <CatalogItem

@@ -1,11 +1,8 @@
 .catalogList {
-    flex-wrap: wrap;
-    /* background-color: aqua; */
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    /* margin-left: 50%;
-    margin-right: 50%; */
     padding-top: 10px;
     padding-bottom: 10px;
     width: 100vw;

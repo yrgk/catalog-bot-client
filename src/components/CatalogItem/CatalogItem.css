@@ -10,8 +10,9 @@ h3, h4, h5, h6 {
 
 .catalogItem {
     background-color: var(--tg-theme-bg-color);
-    /* background-color: #8D99AE; */
-    max-width: 45%;
+    background-color: #8D99AE;
+    max-width: 45vw;
+    /* max-height: 40vh; */
     margin: 5px;
     border-radius: 10px;
     display: flex;
@@ -22,7 +23,7 @@ h3, h4, h5, h6 {
 
 .catalogItemCover {
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
 
     object-fit: cover;
     border-radius: 5px;
@@ -30,21 +31,25 @@ h3, h4, h5, h6 {
 
 .catalogItemCoverBox {
     width: 100%;
-    height: 200px;
+    /* height: 200px; */
     border-radius: 5px;
     margin: 5px 5px 0px;
+    /* background-color: aqua; */
 }
 
 .catalogItemTextBox {
     width: 94%;
-    margin: 5px;
+    margin: 0px 5px 10px 5px;
 }
 
 .title {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
+    /* display: -webkit-box; */
+    /* -webkit-line-clamp: 3; */
+    /* -webkit-box-orient: vertical;
+    overflow: hidden; */
+    white-space: nowrap;
     overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .addButton {

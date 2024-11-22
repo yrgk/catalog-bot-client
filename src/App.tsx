@@ -8,21 +8,20 @@ import { useEffect } from 'react'
 import Cart from './components/Cart/Cart'
 import CatalogList from './components/CatalogList/CatalogList'
 import OneCatalogItem from './components/OneCatalogItem/OneCatalogItem'
-// import CatalogItem from './components/CatalogItem'
-//
-//
-//
+
 
 const tg = WebApp
 
 function App() {
   useEffect(() => {
     tg.ready();
+    tg.disableVerticalSwipes()
   }, [])
 
   // const onClose = () => {
   //   tg.close()
   // }
+
 
   return (
     <BrowserRouter>
