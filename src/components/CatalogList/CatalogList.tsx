@@ -40,9 +40,9 @@ export default function CatalogList() {
     const [shopTitle, setShopTitle] = useState("");
     const [currentBanner, setCurrentBanner] = useState(0);
     // const [loading, setLoading] = useState(true); // Состояние загрузки
-    //const shopId = Number(tg.initDataUnsafe.start_param)
-    const tg = WebApp;
-    const shopId = 123;
+    const shopId = Number(tg.initDataUnsafe.start_param)
+    // const tg = WebApp;
+    // const shopId = 123;
 
 
 
