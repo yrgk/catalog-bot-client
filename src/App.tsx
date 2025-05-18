@@ -8,7 +8,7 @@ import { useEffect } from 'react'
 import Cart from './components/Cart/Cart'
 import CatalogList from './components/CatalogList/CatalogList'
 import OneCatalogItem from './components/OneCatalogItem/OneCatalogItem'
-
+// import LoadingScreen from './components/LoadingScreen'
 
 const tg = WebApp
 
@@ -31,6 +31,7 @@ function App() {
         <Route path='/catalog/:shopId' element={<CatalogList />} />
         <Route path='/item/:itemId' element={<OneCatalogItem/>} />
         <Route path='/cart' element={<Cart/>} />
+        {/* <Route path='*' element={<LoadingScreen />} /> Можно добавить маршрут на случай непредвиденной ошибки */}
       </Routes>
     </BrowserRouter>
   )

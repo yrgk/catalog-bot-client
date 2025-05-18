@@ -1,18 +1,19 @@
+/* Общие стили для заголовков */
 h3, h4, h5, h6 {
     color: var(--tg-theme-text-color);
     margin: 0 auto;
 }
 
+/* Стили для основного заголовка цены */
 #price {
     font-size: medium;
     margin-bottom: 2px;
 }
 
+/* Стили для карточки товара */
 .catalogItem {
-    background-color: var(--tg-theme-bg-color);
-    /* background-color: #8D99AE; */
-    max-width: 45vw;
-    /* max-height: 40vh; */
+    background-color: var(--tg-theme-bg-color); /* Используется фоновый цвет, определенный в теме */
+    max-width: 45vw; /* Максимальная ширина карточки товара */
     margin: 5px;
     border-radius: 10px;
     display: flex;
@@ -21,14 +22,14 @@ h3, h4, h5, h6 {
     justify-content: center;
 }
 
+/* Стили для изображения товара */
 .catalogItemCover {
-    width: 100%;
-    /* height: 100%; */
-
-    object-fit: cover;
+    width: 100%; /* Занимает 100% ширины контейнера */
+    object-fit: cover; /* Изображение не искажается, сохраняет пропорции */
     border-radius: 5px;
 }
 
+/* Стили для обертки изображения товара */
 .catalogItemCoverBox {
     width: 100%;
     /* height: 200px; */
@@ -37,23 +38,22 @@ h3, h4, h5, h6 {
     /* background-color: aqua; */
 }
 
+/* Стили для текстовой части карточки товара */
 .catalogItemTextBox {
     width: 94%;
     margin: 0px 5px 10px 5px;
 }
 
+/* Стили для названия товара */
 .title {
-    /* display: -webkit-box; */
-    /* -webkit-line-clamp: 3; */
-    /* -webkit-box-orient: vertical;
-    overflow: hidden; */
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    white-space: nowrap; /* Останавливает текст на одной строке */
+    overflow: hidden; /* Скрывает переполняющий текст */
+    text-overflow: ellipsis; /* Показывает многоточие, если текст не помещается */
 }
 
+/* Стили для кнопки добавления товара */
 .addButton {
-    background-color: var(--tg-theme-button-color);
+    background-color: var(--tg-theme-button-color); /* Цвет кнопки на основе темы */
     width: 100%;
     margin: 5px;
     display: flex;
@@ -61,8 +61,34 @@ h3, h4, h5, h6 {
     margin-top: 5px;
     padding: 5px;
     border-radius: 5px;
+    justify-content: center;
+    cursor: pointer;
 }
 
+/* Стили для текста на кнопке */
 .addButtonText {
-    color: var(--tg-theme-button-text-color);
+    color: var(--tg-theme-button-text-color); /* Цвет текста на кнопке */
+}
+
+/* Стили для скидочной цены */
+.discountPrice {
+    color: #e74c3c; /* Красный цвет для скидочной цены */
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Стили для процента скидки */
+.discountPercentage {
+    color: #27ae60; /* Зеленый цвет для процента скидки */
+    font-size: 14px;
+    font-weight: normal;
+    margin-top: 5px;
+}
+
+/* Стили для старой цены, зачеркнутой */
+.originalPrice {
+    color: #999;
+    font-size: 16px;
+    text-decoration: line-through;
+    margin-right: 10px;
 }

@@ -1,3 +1,4 @@
+
 .catalogList {
     display: flex;
     flex-wrap: wrap;
@@ -7,3 +8,56 @@
     padding-bottom: 10px;
     width: 100vw;
 }
+
+.discount-banner {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200px; /* высота баннера */
+    background-color: #000000;
+    color: white;
+    text-align: center;
+    z-index: 1000;
+    overflow: hidden;
+  }
+  
+  .banner-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Чтобы изображение занимало весь баннер, сохраняя пропорции */
+    animation: fadeInOut 5s infinite;
+  }
+  
+  .dots-container {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  
+  .dot {
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .dot.active {
+    background-color: white; /* Цвет активной точки */
+  }
+  
+  .dot:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+  
+  /* Для отступов от контента */
+  .catalogList {
+    margin-top: 10px; /* Отступ от баннера */
+  }
