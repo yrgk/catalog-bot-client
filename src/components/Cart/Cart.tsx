@@ -3,14 +3,14 @@ import WebApp from "@twa-dev/sdk";
 import { useNavigate } from "react-router-dom";
 
 export default function Cart() {
-    const navigate = useNavigate()
+    const navigate = useNavigate() // Хук для программной навигации
     const BackButton = WebApp.BackButton;
-    BackButton.show();
+    BackButton.show(); // Показываем кнопку "Назад" Telegram
     BackButton.onClick(function() {
-        BackButton.hide();
+        BackButton.hide(); // Прячем кнопку при клике
     });
     WebApp.onEvent('backButtonClicked', function() {
-        navigate('/')
+        navigate('/') // При нажатии аппаратной кнопки Telegram — возвращаемся на главную
     });
     return (
         <>

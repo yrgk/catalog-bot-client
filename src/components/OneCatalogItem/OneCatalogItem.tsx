@@ -2,8 +2,8 @@ import WebApp from '@twa-dev/sdk';
 import './OneCatalogItem.css';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-
 import axios from 'axios';
+import LoadingScreen from '../LoadingScreen/LoadingScreen';
 
 type CatalogItem = {
     id: number;
@@ -22,103 +22,97 @@ export default function OneCatalogItem() {
     const BackButton = tg.BackButton;
 
     const [item, setItem] = useState<CatalogItem>();
-    const [inCart, setInCart] = useState(false);
-    const [itemCount, setItemCount] = useState(0);
-    const [totalCost, setTotalCost] = useState(0);
+    const [loading, setLoading] = useState(true);
+    
+  // Навигация назад
+  useEffect(() => {
+    BackButton.show();
+    const backHandler = () => {
+        navigate(-1);
+      tg.HapticFeedback.impactOccurred('light');
+    };
+    WebApp.onEvent('backButtonClicked', backHandler);
+    return () => {
+      WebApp.offEvent('backButtonClicked', backHandler);
+    };
+  }, []);
 
-    useEffect(() => {
-        tg.MainButton.hide();
-        BackButton.show();
+  // Получение товара
+  useEffect(() => {
+    if (itemId) {
+        fetchItem(Number(itemId));
+    }
+  }, [itemId]);
 
-        const backHandler = () => {
-            navigate(-1);
-            tg.HapticFeedback.impactOccurred('light');
-        };
+  const fetchItem = (item_id: number) => {
+    setLoading(true);
+    axios.get<CatalogItem>(`https://catalogio.space/api/v1/item/${item_id}`)
+      .then((response) => {
+        setItem(response.data);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  };
 
-        WebApp.onEvent('backButtonClicked', backHandler);
+  // MainButton: Купить
+  useEffect(() => {
+    if (!item) return;
 
-        return () => {
-            WebApp.offEvent('backButtonClicked', backHandler);
-        };
-    }, []);
+    tg.MainButton.setParams({
+      text: `Купить за ${item.price} ${item.currency}`,
+    });
+    tg.MainButton.show();
 
-    useEffect(() => {
-        if (itemId) {
-            fetchItem(Number(itemId));
-        }
-    }, [itemId]);
-
-    const fetchItem = (item_id: number) => {
-        axios.get<CatalogItem>(`https://catalogio.space/api/v1/item/${item_id}`)
-            .then((response) => {
-                setItem(response.data);
-            });
+    const onClick = () => {
+      const payload = {
+        action: 'buy_one',
+        item: {
+          id: item.id,
+          title: item.title,
+          price: item.price,
+          currency: item.currency,
+          quantity: 1,
+        },
+      };
+      tg.sendData(JSON.stringify(payload));
+      tg.HapticFeedback.notificationOccurred('success');
     };
 
-    const handleAddToCart = () => {
-        if (!item) return;
-        tg.HapticFeedback.impactOccurred('medium');
-        setInCart(true);
-        setItemCount(1);
-        setTotalCost(item.price);
+    tg.onEvent('mainButtonClicked', onClick);
+
+    return () => {
+      tg.MainButton.hide();
+      tg.offEvent('mainButtonClicked', onClick);
     };
+  }, [item]);
 
-    const handleIncrement = () => {
-        if (!item) return;
-        tg.HapticFeedback.impactOccurred('medium');
-        setItemCount(prev => prev + 1);
-        setTotalCost(prev => prev + item.price);
-    };
+   if (loading) return <LoadingScreen />;
 
-    const handleDecrement = () => {
-        if (!item) return;
-        tg.HapticFeedback.impactOccurred('medium');
-        if (itemCount === 1) {
-            setInCart(false);
-            setItemCount(0);
-            setTotalCost(0);
-        } else {
-            setItemCount(prev => prev - 1);
-            setTotalCost(prev => prev - item.price);
-        }
-    };
+  return (
+    <div className="OneCatalogItem">
+      <div className="OneCatalogItemCoverBox">
+        <img
+          className="catalogItemCover"
+          src={item?.cover_url}
+          alt="Not loaded"
+          loading="lazy"
+        />
+      </div>
 
-    return (
-        <div className="OneCatalogItem">
-            <div className="OneCatalogItemCoverBox">
-                <img className="catalogItemCover" src={item?.cover_url} alt="Not loaded" loading="lazy" />
-            </div>
-            <div className="OneCatalogItemTextBox">
-                <div className="priceTitleBlock">
-                    <h1 className="onePrice">{item?.price}{item?.currency}</h1>
-                    <h2 className="oneTitle">{item?.title}</h2>
-                </div>
-
-                <h4 className="descriptionTitle">Описание</h4>
-                <div className="descriptionBlock">
-                    <h5>{item?.description}</h5>
-                </div>
-
-                <footer className="oneFooter">
-                    {inCart ? (
-                        <div className="cartBuild">
-                            <div onClick={handleDecrement} className="cart" id="left">
-                                <h4 className="inButtonTitle">-</h4>
-                            </div>
-                            <div className="cart" id="center">
-                                <h4 className="inButtonTitle">{itemCount}</h4>
-                            </div>
-                            <div onClick={handleIncrement} className="cart" id="right">
-                                <h4 className="inButtonTitle">+</h4>
-                            </div>
-                        </div>
-                    ) : (
-                        <div className="cartButton green" onClick={handleAddToCart}>
-                            <h4 className="inButtonTitle">В корзину</h4>
-                        </div>
-                    )}
-                </footer>
-            </div>
+      <div className="OneCatalogItemTextBox">
+        <div className="priceTitleBlock">
+          <h1 className="onePrice">
+            {item?.price} {item?.currency}
+          </h1>
+          <h2 className="oneTitle">{item?.title}</h2>
         </div>
-    );
+
+        <h4 className="descriptionTitle">Описание</h4>
+        <div className="descriptionBlock">
+          <h5>{item?.description}</h5>
+        </div>
+      </div>
+    </div>
+  );
 }

@@ -1,0 +1,11 @@
+.user-header {
+  display: flex;
+}
+
+.user-avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--tg-theme-button-color);
+}
