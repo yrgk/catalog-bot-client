@@ -5,7 +5,7 @@ import CatalogHeader from '../CatalogHeader/CatalogHeader'; // Импорт ко
 import CatalogItem from '../CatalogItem/CatalogItem'; // Импорт компонента отдельного элемента каталога
 import LoadingScreen from '../LoadingScreen/LoadingScreen'; // Импорт компонента экрана загрузки
 import './CatalogList.css'; // Импорт CSS-стилей для компонента CatalogList
-import UserHeader from '../UserHeader/UserHeader';
+// import UserHeader from '../UserHeader/UserHeader';
 
 
 
@@ -86,7 +86,7 @@ export default function CatalogList() {
       {/* Заголовок + аватар */}
       <div className="CatalogHeader">
         <CatalogHeader title={shopTitle} />
-        <UserHeader />
+        {/* <UserHeader /> */}
       </div>
 
       {/* Баннер без свайпа */}
