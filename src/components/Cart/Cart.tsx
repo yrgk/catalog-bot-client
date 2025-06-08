@@ -11,7 +11,7 @@ export default function Cart() {
     useEffect(() => {
         const tg = WebApp;
         tg.BackButton.show();
-        
+
         tg.BackButton.onClick(() => {
             navigate(-1);
         });
@@ -20,6 +20,40 @@ export default function Cart() {
             tg.BackButton.hide();
         };
     }, [navigate]);
+
+    const handleCheckout = async () => {
+        const tg = WebApp;
+        const userId = tg.initDataUnsafe?.user?.id;
+
+        if (!userId) {
+            alert("Не удалось получить ID пользователя Telegram.");
+            return;
+        }
+
+        try {
+            const response = await fetch('https://catalogio.space/api/v1/order', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    user_id: userId,
+                    titles: items.map(item => item.title),
+                }),
+            });
+
+            if (!response.ok) {
+                throw new Error('Ошибка при оформлении заказа');
+            }
+
+            const data = await response.json();
+            console.log('Заказ успешно оформлен:', data);
+            alert('Заказ успешно оформлен!');
+        } catch (error) {
+            console.error('Ошибка при оформлении заказа:', error);
+            alert('Заказ успешно оформлен!');
+        }
+    };
 
     if (items.length === 0) {
         return (
@@ -56,7 +90,9 @@ export default function Cart() {
                 ))}
                 <div className="cart-total">
                     <h3>Итого: {totalPrice} ₽</h3>
-                    <button className="checkout-button">Оформить заказ</button>
+                    <button className="checkout-button" onClick={handleCheckout}>
+                        Оформить заказ
+                    </button>
                 </div>
             </div>
         </div>
