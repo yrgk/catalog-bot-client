@@ -19,7 +19,7 @@ export default function CatalogHeader(props: CatalogHeaderProps) {
                 <button 
                     className="cartButton"
                     onClick={handleCartClick}
-                >
+                > 
                     🛒
                 </button>
                 <UserHeader />
