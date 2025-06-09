@@ -7,19 +7,21 @@ import './Cart.css';
 export default function Cart() {
     const { items, removeFromCart, updateQuantity, totalPrice } = useCart();
     const navigate = useNavigate();
+    const tg = WebApp;
+    const BackButton = tg.BackButton;
+
 
     useEffect(() => {
-        const tg = WebApp;
-        tg.BackButton.show();
-
-        tg.BackButton.onClick(() => {
-            navigate(-1);
-        });
-
-        return () => {
-            tg.BackButton.hide();
-        };
-    }, [navigate]);
+            BackButton.show();
+            const backHandler = () => {
+                navigate(-1);
+                tg.HapticFeedback.impactOccurred('light');
+            };
+            WebApp.onEvent('backButtonClicked', backHandler);
+            return () => {
+                WebApp.offEvent('backButtonClicked', backHandler);
+            };
+        }, []);
 
     const handleCheckout = async () => {
         const tg = WebApp;

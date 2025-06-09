@@ -1,11 +1,59 @@
 .user-header {
   display: flex;
+  gap: 0px;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 12px;
+  transition: background-color 0.2s ease;
+  background-color: var(--tg-theme-bg-color, #ffffff);
+}
+
+.user-header:hover {
+  background-color: var(--tg-theme-hint-color, #99999920);
 }
 
 .user-avatar {
-  width: 45px;
-  height: 45px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid var(--tg-theme-button-color);
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.username {
+  color: var(--tg-theme-text-color, #000000);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Стили для страницы профиля */
+.user-header.profile-page {
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background: none;
+  cursor: default;
+}
+
+.user-header.profile-page:hover {
+  background: none;
+}
+
+.user-header.profile-page .user-avatar {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 16px;
+}
+
+.user-header.profile-page .user-info {
+  align-items: center;
+}
+
+.user-header.profile-page .username {
+  font-size: 18px;
+  margin-bottom: 8px;
 }

@@ -10,6 +10,7 @@ import CatalogList from './components/CatalogList/CatalogList'
 import OneCatalogItem from './components/OneCatalogItem/OneCatalogItem'
 import CatalogShop from './components/CatalogShop/CatalogShop'
 import { CartProvider } from './context/CartContext'
+import UserProfile from './pages/UserProfile/UserProfile'
 // import LoadingScreen from './components/LoadingScreen'
 
 const tg = WebApp
@@ -35,6 +36,7 @@ function App() {
           <Route path="/" element={<CatalogShop />} />
           <Route path='/item/:itemId' element={<OneCatalogItem/>} />
           <Route path='/cart' element={<Cart/>} />
+          <Route path='/profile' element={<UserProfile/>} />
           {/* <Route path='*' element={<LoadingScreen />} /> Можно добавить маршрут на случай непредвиденной ошибки */}
         </Routes>
       </BrowserRouter>
