@@ -5,7 +5,7 @@ import WebApp from '@twa-dev/sdk';
 import './Cart.css';
 
 export default function Cart() {
-    const { items, removeFromCart, updateQuantity, totalPrice } = useCart();
+    const { items, removeFromCart, updateQuantity, totalPrice, clearCart } = useCart();
     const navigate = useNavigate();
     const tg = WebApp;
     const BackButton = tg.BackButton;
@@ -54,6 +54,8 @@ export default function Cart() {
         } catch (error) {
             console.error('Ошибка при оформлении заказа:', error);
             alert('Заказ успешно оформлен!');
+        } finally {
+            clearCart();
         }
     };
 
