@@ -4,18 +4,16 @@ import { userApi, Order } from '../../services/api';
 import './UserOrders.css';
 
 // [ORDERS] Компонент истории заказов пользователя
-export default function UserOrders() {
+export default function UserOrders({ user }: { user: any }) {
     const [orders, setOrders] = useState<Order[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
     const tg = WebApp;
-    const user = tg.initDataUnsafe?.user;
 
     // [ORDERS] Загрузка заказов пользователя
     useEffect(() => {
         const fetchOrders = async () => {
             if (!user?.id) return;
-            
             try {
                 setLoading(true);
                 const userOrders = await userApi.getOrders(user.id.toString());
@@ -28,7 +26,6 @@ export default function UserOrders() {
                 setLoading(false);
             }
         };
-
         fetchOrders();
     }, [user?.id]);
 
