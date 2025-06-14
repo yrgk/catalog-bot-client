@@ -4,13 +4,15 @@ import { useCart } from '../../context/CartContext';
 import WebApp from '@twa-dev/sdk';
 import './Cart.css';
 
+// [CART] Основной компонент корзины
 export default function Cart() {
+    // [CART] Получаем данные и методы корзины из контекста
     const { items, removeFromCart, updateQuantity, totalPrice, clearCart } = useCart();
     const navigate = useNavigate();
     const tg = WebApp;
     const BackButton = tg.BackButton;
 
-
+    // [CART] Обработка аппаратной кнопки "Назад" Telegram
     useEffect(() => {
             BackButton.show();
             const backHandler = () => {
@@ -23,6 +25,7 @@ export default function Cart() {
             };
         }, []);
 
+    // [CART] Оформление заказа
     const handleCheckout = async () => {
         const tg = WebApp;
         const userId = tg.initDataUnsafe?.user?.id;
@@ -33,7 +36,7 @@ export default function Cart() {
         }
 
         try {
-            const response = await fetch('https://catalogio.space/api/v1/order', {
+            const response = await fetch('https://catalogio.space/api/v1/order/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -55,10 +58,11 @@ export default function Cart() {
             console.error('Ошибка при оформлении заказа:', error);
             alert('Заказ успешно оформлен!');
         } finally {
-            clearCart();
+            clearCart(); // [CART] Очищаем корзину после оформления заказа
         }
     };
 
+    // [CART] Если корзина пуста
     if (items.length === 0) {
         return (
             <div className="cart-page">
@@ -72,6 +76,7 @@ export default function Cart() {
         );
     }
 
+    // [CART] Отображение товаров в корзине
     return (
         <div className="cart-page">
             <div className="cart-header">Корзина</div>

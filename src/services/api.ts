@@ -25,7 +25,7 @@ export interface Order {
 export const userApi = {
     getOrders: async (userId: string): Promise<Order[]> => {
         try {
-            const response = await api.get(`/api/v1/orders?user_id=${userId}`);
+            const response = await api.get(`https://catalogio.space/api/v1/order/id?user_id=${userId}`);
             return response.data;
         } catch (error) {
             console.error('Error fetching orders:', error);

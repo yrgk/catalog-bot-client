@@ -3,6 +3,7 @@ import WebApp from '@twa-dev/sdk';
 import { useNavigate, useLocation } from 'react-router-dom';
 import './UserHeader.css';
 
+// [USERHEADER] Компонент аватара пользователя и перехода в профиль
 export default function UserHeader() {
   const user = WebApp.initDataUnsafe.user;
   const navigate = useNavigate();
@@ -12,6 +13,7 @@ export default function UserHeader() {
 
   const isProfilePage = location.pathname === '/profile';
 
+  // [USERHEADER] Обработка аппаратной кнопки "Назад" Telegram
   useEffect(() => {
     if (isProfilePage) {
       BackButton.show();
@@ -28,6 +30,7 @@ export default function UserHeader() {
 
   if (!user?.photo_url) return null;
 
+  // [USERHEADER] Переход в профиль с тактильной отдачей
   const handleClick = () => {
     navigate('/profile');
     tg.HapticFeedback.impactOccurred('light');
@@ -35,6 +38,7 @@ export default function UserHeader() {
 
   return (
     <div className={`user-header ${isProfilePage ? 'profile-page' : ''}`} onClick={!isProfilePage ? handleClick : undefined}>
+      {/* [USERHEADER] Аватар пользователя */}
       <img className="user-avatar" src={user.photo_url} alt="avatar" />
       {isProfilePage && (
         <div className="user-info">

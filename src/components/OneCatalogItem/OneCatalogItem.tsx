@@ -14,6 +14,7 @@ type CatalogItem = {
     cover_url: string;
 };
 
+// [ONEITEM] Компонент подробной информации о товаре
 export default function OneCatalogItem() {
     const { itemId } = useParams<{ itemId: string }>();
     const navigate = useNavigate();
@@ -24,7 +25,7 @@ export default function OneCatalogItem() {
     const [item, setItem] = useState<CatalogItem>();
     const [loading, setLoading] = useState(true);
     
-    // Навигация назад
+    // [ONEITEM] Навигация назад с тактильной отдачей
     useEffect(() => {
         BackButton.show();
         const backHandler = () => {
@@ -37,13 +38,14 @@ export default function OneCatalogItem() {
         };
     }, []);
 
-    // Получение товара
+    // [ONEITEM] Получение информации о товаре по id
     useEffect(() => {
         if (itemId) {
             fetchItem(Number(itemId));
         }
     }, [itemId]);
 
+    // [ONEITEM] Запрос к API для получения товара
     const fetchItem = (item_id: number) => {
         setLoading(true);
         axios.get<CatalogItem>(`https://catalogio.space/api/v1/item/${item_id}`)
@@ -57,6 +59,7 @@ export default function OneCatalogItem() {
 
     if (loading) return <LoadingScreen />;
 
+    // [ONEITEM] Отображение информации о товаре
     return (
         <div className="OneCatalogItem">
             <div className="OneCatalogItemCoverBox">

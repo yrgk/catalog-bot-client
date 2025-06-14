@@ -3,6 +3,7 @@ import WebApp from '@twa-dev/sdk';
 import { userApi, Order } from '../../services/api';
 import './UserOrders.css';
 
+// [ORDERS] Компонент истории заказов пользователя
 export default function UserOrders() {
     const [orders, setOrders] = useState<Order[]>([]);
     const [loading, setLoading] = useState(true);
@@ -10,6 +11,7 @@ export default function UserOrders() {
     const tg = WebApp;
     const user = tg.initDataUnsafe?.user;
 
+    // [ORDERS] Загрузка заказов пользователя
     useEffect(() => {
         const fetchOrders = async () => {
             if (!user?.id) return;
@@ -30,6 +32,7 @@ export default function UserOrders() {
         fetchOrders();
     }, [user?.id]);
 
+    // [ORDERS] Форматирование даты заказа
     const formatDate = (dateString: string) => {
         return new Date(dateString).toLocaleDateString('ru-RU', {
             year: 'numeric',
@@ -56,6 +59,7 @@ export default function UserOrders() {
         );
     }
 
+    // [ORDERS] Отображение заказов пользователя
     return (
         <div className="userOrders">
             <h3 className="ordersTitle">История заказов</h3>
