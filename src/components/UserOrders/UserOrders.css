@@ -1,13 +1,13 @@
 .userOrders {
     width: 90%;
-    margin-top: 20px;
+    margin-top: 0px;
 }
 
 .ordersTitle {
     color: var(--tg-theme-text-color, #000000);
     font-size: 18px;
     font-weight: 600;
-    margin-bottom: 16px;
+    margin-bottom: 5px;
 }
 
 .ordersList {
