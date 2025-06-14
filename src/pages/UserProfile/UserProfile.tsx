@@ -1,5 +1,6 @@
 import WebApp from '@twa-dev/sdk';
 import UserHeader from '../../components/UserHeader/UserHeader';
+import UserOrders from '../../components/UserOrders/UserOrders';
 import './UserProfile.css';
 
 export default function UserProfile() {
@@ -28,6 +29,7 @@ export default function UserProfile() {
                         <span className="value">{user?.phone_number || 'Не указано'}</span>
                     </div>
                 </div>
+                <UserOrders />
             </div>
         </div>
     );
