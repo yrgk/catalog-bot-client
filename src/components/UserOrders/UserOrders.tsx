@@ -58,25 +58,25 @@ export default function UserOrders() {
             {orders.length > 0 ? (
   <div className="ordersList">
     {orders
-      .slice(-1) // берем последние 2 заказа
+      .slice(-1) // берем последниий заказ
       .map((order: any) => (
         <div key={order.OrderId} className="orderCard">
           <div className="orderHeader">
             <span className="orderId">Заказ #{order.OrderId}</span>
-            <span className="orderDate">Дата: неизвестна</span>
+            <span className="orderDate">Дата: 16.06.2025</span>
           </div>
           <div className="orderItems">
             {order.Units.map((item: any) => (
               <div key={item.ID} className="orderItem">
                 <span className="itemName">{item.Title}</span>
                 <span className="itemQuantity">x1</span>
-                <span className="itemPrice">—</span>
+                <span className="itemPrice">{item.price}</span>
               </div>
             ))}
           </div>
           <div className="orderFooter">
-            <span className="orderStatus">Статус: неизвестен</span>
-            <span className="orderTotal">Итого: —</span>
+            <span className="orderStatus">{order.state}</span>
+            <span className="orderTotal">Итого: {order.Units.reduce((sum: number, item: { price: number }) => sum + item.price, 0)} ₽</span>
           </div>
         </div>
       ))}

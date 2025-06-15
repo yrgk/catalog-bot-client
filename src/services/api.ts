@@ -12,7 +12,7 @@ const api = axios.create({
 export interface Order {
     id: string;
     created_at: string;
-    status: string;
+    state: string;
     total: number;
     items: Array<{
         id: string;

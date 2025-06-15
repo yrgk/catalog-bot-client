@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { json, useNavigate } from 'react-router-dom';
 import { useCart } from '../../context/CartContext';
 import WebApp from '@twa-dev/sdk';
 import './Cart.css';
@@ -43,7 +43,10 @@ export default function Cart() {
                 },
                 body: JSON.stringify({
                     user_id: userId,
-                    titles: items.map(item => item.title),
+                    data_list: items.map(item => ({
+                        title: item.title,
+                        price: item.price
+                    }))
                 }),
             });
 

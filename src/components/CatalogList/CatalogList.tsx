@@ -173,7 +173,7 @@ export default function CatalogList() {
         {/* <UserHeader /> */}
       </div>
 
-      {/* Баннер без свайпа */}
+      {/* Баннер */}
       {banners.length > 0 && (
         <div className="discount-banner">
           <img
